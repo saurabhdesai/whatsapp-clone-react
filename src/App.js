@@ -18,7 +18,7 @@ function App() {
     //   };
   }, []);
   useEffect(() => {
-    var pusher = new Pusher("0b4d5c0108a84ff63c3b", {
+    var pusher = new Pusher(`${process.env.REACT_APP_PUSHER_KEY}`, {
       cluster: "ap2",
     });
 
@@ -48,7 +48,7 @@ function App() {
     <div className="app">
       <div className="app_body">
         {/* <GoogleLogin
-          clientId="839716415624-4dnencjrbvk3mgturfcqchen50bntgtc.apps.googleusercontent.com"
+          
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
         /> */}

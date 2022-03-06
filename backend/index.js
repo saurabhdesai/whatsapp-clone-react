@@ -11,8 +11,8 @@ const app = express();
 const port = process.env.PORT || 9000;
 const pusher = new Pusher({
   appId: "1357070",
-  key: "0b4d5c0108a84ff63c3b",
-  secret: "bac031dbd98712fba539",
+  key: `${process.env.REACT_APP_PUSHER_KEY}`,
+  secret: ` ${process.env.REACT_APP_PUSHER_SECRET_KEY}`,
   cluster: "ap2",
   useTLS: true,
 });
@@ -44,8 +44,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "*");
   next();
 });
-const connection_url =
-  "mongodb+srv://admin:admin@cluster0.bldpp.mongodb.net/whatsappdb?retryWrites=true&w=majority";
+const connection_url = `${process.env.backend_key}`;
 mongoose.connect(connection_url, {
   //   useCreateIndex: true,
   //   useNewUrlParse: true,
